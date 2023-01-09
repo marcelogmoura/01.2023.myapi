@@ -1,5 +1,7 @@
 package br.com.mgmoura.myapi.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,12 @@ public class UsuarioResource {
 	public ResponseEntity<Usuario> findById(@PathVariable Integer id){
 		Usuario obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<Usuario>> findAll(){
+		List<Usuario> list = service.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 
 }
