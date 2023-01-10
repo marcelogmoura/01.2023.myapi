@@ -3,6 +3,7 @@ package br.com.mgmoura.myapi.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class Usuario implements Serializable{
 	
 	@NotEmpty(message = "Campo LOGIN não pode ser vazio")
 	@Length(min = 2, max = 50, message = "Deve ter entre 2 e 50 caracteres")
+	@Column(unique = true)
 	private String login;
 	
 	@NotEmpty(message = "Campo SENHA não pode ser vazio")
